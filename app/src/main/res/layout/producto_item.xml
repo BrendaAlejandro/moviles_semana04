@@ -1,51 +1,32 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.appcompat.widget.LinearLayoutCompat xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="240dp"
     android:orientation="vertical"
-    android:weightSum="4">
+    android:weightSum="8">
 
-    <LinearLayout
-        android:layout_width="match_parent"
+    <TextView
+        android:layout_weight="2"
+        android:id="@+id/idItemProductTitle"
         android:layout_height="0dp"
-        android:orientation="horizontal"
-        android:weightSum="9"
-        android:layout_weight="1">
+        android:layout_width="match_parent"
+        android:padding="3dp"/>
 
-        <TextView
-            android:layout_weight="1"
-            android:id="@+id/idItemId"
-            android:layout_height="match_parent"
-            android:layout_width="0dp"
-            android:padding="3dp"
-            />
-
-        <TextView
-            android:layout_weight="8"
-            android:id="@+id/idItemProductoTitle"
-            android:layout_height="match_parent"
-            android:layout_width="0dp"
-            android:padding="3dp"
-            />
-
-    </LinearLayout>
-
+    <ImageView
+        android:layout_weight="5"
+        android:id="@+id/idItemProductImage"
+        android:layout_width="100dp"
+        android:layout_height="0dp"
+        android:layout_gravity="center"
+        android:src="@mipmap/ic_launcher"
+        android:padding="3dp"/>
 
     <TextView
         android:layout_weight="1"
-        android:id="@+id/idItemRate"
+        android:id="@+id/idItemProductPrice"
         android:layout_height="0dp"
         android:layout_width="match_parent"
         android:padding="3dp"
-
         />
 
-    <TextView
-        android:layout_weight="1"
-        android:id="@+id/idItemCount"
-        android:layout_height="0dp"
-        android:layout_width="match_parent"
-        android:padding="3dp"
-
-        />
 </androidx.appcompat.widget.LinearLayoutCompat>

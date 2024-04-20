@@ -1,6 +1,8 @@
 package com.example.semana02.entity;
 
-public class Rating {
+import java.io.Serializable;
+
+public class Rating implements Serializable {
     private double rate;
 
     public double getRate() {

@@ -1,11 +1,23 @@
 package com.example.semana02.entity;
 
-public class Producto {
+import java.io.Serializable;
+
+public class Producto implements Serializable {
     private int id;
     private String title;
     private String description;
     private String category;
     private String image;
+
+    public double getPrice() {
+        return price;
+    }
+
+    public void setPrice(double price) {
+        this.price = price;
+    }
+
+    private double price;
 
     public int getId() {
         return id;

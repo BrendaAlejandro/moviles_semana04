@@ -1,8 +1,11 @@
 package com.example.semana02;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.Button;
+import android.widget.GridView;
 import android.widget.ListView;
 
 import androidx.activity.EdgeToEdge;
@@ -26,7 +29,7 @@ import retrofit2.Response;
 public class MainActivity extends AppCompatActivity {
 
     //ListView y Adapater
-    ListView lstProducto;
+    GridView lstProducto;
     ArrayList<Producto> listaProducto = new ArrayList<Producto>();
     ProductoAdapter productoAdapter;
 
@@ -68,19 +71,35 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        lstProducto.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+
+                Producto obj =  listaProducto.get(position);
+                Intent intent = new Intent(MainActivity.this, MainViewDetall.class);
+                intent.putExtra("var_product", obj);
+                startActivity(intent);
+
+
+            }
+        });
     }
+
+
+
+
 
     void cargaProductos(){
         Call<List<Producto>> call = serviceProducto.listaproductos();
         call.enqueue(new Callback<List<Producto>>() {
             @Override
             public void onResponse(Call<List<Producto>> call, Response<List<Producto>> response) {
-                   if (response.isSuccessful()){
-                       listaTotalProductos = response.body();
-                       listaProducto.clear();
-                       listaProducto.addAll(listaTotalProductos);
-                       productoAdapter.notifyDataSetChanged();
-                   }
+                if (response.isSuccessful()){
+                    listaTotalProductos = response.body();
+                    listaProducto.clear();
+                    listaProducto.addAll(listaTotalProductos);
+                    productoAdapter.notifyDataSetChanged();
+                }
             }
             @Override
             public void onFailure(Call<List<Producto>> call, Throwable t) {

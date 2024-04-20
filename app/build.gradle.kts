@@ -35,6 +35,8 @@ dependencies {
 
     implementation("com.squareup.retrofit2:retrofit:2.4.0")
     implementation ("com.squareup.retrofit2:converter-gson:2.2.0")
+    //agregada
+    implementation ("com.github.bumptech.glide:glide:4.15.1")
 
     implementation(libs.appcompat)
     implementation(libs.material)
